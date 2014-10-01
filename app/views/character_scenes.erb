@@ -1,0 +1,11 @@
+<div class="container">
+  <h3>What scene would you like to study?</h3>
+  <ul>
+    <% @scenes.each do |scene| %>
+      <li>
+        <a href="/scene_character/:id>">Scene: <%= scene.scene_id %></a>
+      </li>
+    <% end %>
+  </ul>
+
+</div>

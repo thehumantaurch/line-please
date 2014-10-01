@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Welcome to LinePlease!</h1>
+  <%= @errors if @errors %>
+  <form action="/sign_in" method="POST">
+    Email: <input type="text" name="email"><br>
+    Password: <input type="password" name="password"><br>
+    <input type="submit" value="Log In">
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Welcome to Line, Please!</h1>
+
+  <ul>
+    <% @scripts.each do |post| %>
+      <li>
+        <a href="/scripts/<%=script.id%>"><%= script.title %></a>
+      </li>
+    <% end %>
+  </ul>
+
+  <h3>Upload a script:</h3>
+    <p><form id="new-script" action="/posts" method="POST">
+      Title: <input type="text" name="title"><br>
+      Body: <input type="text" name="author"><br>
+      <input type="submit" value="Upload!">
+    </form></p>
+
+</div>
