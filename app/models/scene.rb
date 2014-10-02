@@ -1,4 +1,6 @@
 class Scene < ActiveRecord::Base
-  has_many :lines
-  has_many :characters, through: :scene_characters
+  belongs_to :script
+  has_many :character_scenes
+  has_many :lines, through: :character_scenes
+  has_many :characters, through: :character_scenes
 end

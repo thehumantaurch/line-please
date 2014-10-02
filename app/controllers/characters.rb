@@ -8,7 +8,11 @@ end
 get '/characters/:id/scenes/:scene_id' do
   @character = Character.find(params[:id])
   @scene = Scene.find(params[:scene_id])
-  erb :start
+  @target = CharacterScene.find_by(scene_id: @scene.id, character_id: @character.id)
+  @other_target = CharacterScene.where(scene_id: @scene.id).where.not(character_id: @character.id).pluck(:id)
+  @lines = Line.where(character_scene_id: @target.id)
+  @cues = Line.where(character_scene_id: @other_target)
+  erb :study
 end
 
 get '/characters/:id' do
@@ -18,10 +22,6 @@ get '/characters/:id' do
   @character_scenes.each do |scene|
     @scenes << Scene.find(scene.scene_id)
   end
-  p @character
-  p @character_scenes
-  p @scenes
-
   erb :character_scenes
 end
 

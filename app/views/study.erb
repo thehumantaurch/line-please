@@ -1,0 +1,21 @@
+<div class="container">
+
+  <h4>All right, let's go over <%= @character.name %>'s lines for this scene... </h4>
+
+  <button class="begin">From the top!</button>
+
+  <ul class="cue_lines">
+    <% @cues.each do |cue| %>
+      <li class="cues">
+        Cue: <%= cue.text %><br>
+        <button class="show_line">Show Line</button>
+      </li>
+    <% end %>
+    <% @lines.each do |line| %>
+      <li class="lines">
+        Line: <%=line.text %><br>
+        <button class="show_cue">Show Next</button></li>
+    <% end %>
+  </ul>
+
+</div>

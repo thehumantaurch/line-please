@@ -3,7 +3,7 @@
   <ul>
     <% @scenes.each do |scene| %>
       <li>
-        <a href="/scene_character/:id>">Scene: <%= scene.scene_id %></a>
+        <a href="/characters/<%= @character.id %>/scenes/<%= scene.id %>">Scene: <%= scene.id %></a>
       </li>
     <% end %>
   </ul>

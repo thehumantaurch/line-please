@@ -1,10 +1,33 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+body {
+  text-decoration: none;
 }
 
-th {
-  text-align: left;
+.container {
+  font-family: "Courier New", Courier;
+  margin: 20px auto;
+  width: 75%;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+  text-decoration: none;
+}
+
+nav {
+  border-bottom: 2px dotted black;
+}
+
+nav h1 {
+  font-family: "Courier New", Courier;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
+nav li {
+  display: inline;
+  padding-right: 30px;
+  font-family: "Courier New", Courier;
+}
+
+nav a {
+  color: black;
+  text-align: center;
 }
