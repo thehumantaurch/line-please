@@ -54,7 +54,11 @@ post '/sign_up' do
 end
 
 get '/' do
-  erb :index
+  if session[:id]
+    redirect "/users/#{session[:id]}"
+  else
+    erb :index
+  end
 end
 
 

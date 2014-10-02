@@ -5,25 +5,27 @@ before '/characters/*' do
   end
 end
 
+get '/characters/:id/scenes/:scene_id' do
+  @character = Character.find(params[:id])
+  @scene = Scene.find(params[:scene_id])
+  erb :start
+end
+
 get '/characters/:id' do
-  @charcter = Character.find(params[:id])
-  @scenes = SceneCharacter.where(character_id: params[:id])
+  @character = Character.find(params[:id])
+  @character_scenes = CharacterScene.where(character_id: @character.id)
+  @scenes = []
+  @character_scenes.each do |scene|
+    @scenes << Scene.find(scene.scene_id)
+  end
+  p @character
+  p @character_scenes
+  p @scenes
 
   erb :character_scenes
 end
 
-# post '/characters' do
-#   @character = Character.create
-#   redirect "/characters/#{params[:id]}"
-# end
-
-# put '/characters' do
-#   @character = Character.update
-#   redirect "/characters/#{params[:id]}"
-# end
-
-# delete '/characters' do
-#   @charcter = Character.find(params[:id])
-    # @character.destroy
-#   redirect "/characters/"
-# end
+get '/characters' do
+  @characters = Character.all
+  erb :characters
+end

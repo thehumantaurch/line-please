@@ -8,6 +8,5 @@ end
 
 get '/users/:id' do
   @user = User.find(params[:id])
-  @characters = Character.all
-  erb :user
+  erb :user_home
 end
