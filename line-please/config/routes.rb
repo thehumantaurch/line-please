@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :lines
-  resources :characters, only: [:create, :update, :destroy]
-  resources :scenes, only: [:create, :update, :destroy]
-  resources :scripts, only: [:create, :update, :destroy]
+  resources :characters, only: [:index, :create, :update, :destroy]
+  resources :scenes, only: [:index :create, :update, :destroy]
+  resources :scripts, only: [:index, :create, :update, :destroy]
   resources :scene_characters, only: [:create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
