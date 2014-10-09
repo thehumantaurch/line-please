@@ -13,12 +13,6 @@ class ScriptsController < ApplicationController
     redirect_to scripts_path
   end
 
-  def update
-  end
-
-  def destroy
-  end
-
   private
 
   def script_params
