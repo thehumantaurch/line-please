@@ -1,6 +1,6 @@
 <h1>Add a script(Script#new)</h1>
 
-<%= form_for scripts_path do |f| %>
+<%= form_for @script, url: {action: "create"} do |f| %>
   <%= f.label "Title:" %>
   <%= f.text_field :title %><br>
   <%= f.label "Author:" %>
