@@ -1,0 +1,7 @@
+<h1>Script Index</h1>
+<ul>
+  <% @scripts.each do |scr| %>
+    <li><%= link_to "#{scr.title}",  script_scenes_path(scr.id) %></li>
+  <% end %>
+    <%= link_to "Add Script", new_script_path %>
+</ul>
