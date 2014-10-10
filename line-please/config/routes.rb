@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   # resources :lines
@@ -6,6 +7,13 @@ Rails.application.routes.draw do
   # resources :scenes, only: [:create, :update, :destroy]
   # resources :scripts, only: [:create, :update, :destroy]
   # resources :scene_characters, only: [:create, :destroy]
+=======
+  resources :lines
+  resources :characters, only: [:index, :create, :update, :destroy]
+  resources :scenes, only: [:index :create, :update, :destroy]
+  resources :scripts, only: [:index, :create, :update, :destroy]
+  resources :scene_characters, only: [:create, :destroy]
+>>>>>>> e34be8bcb4f04f4d91037045d2d44be8d536374e
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
