@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 <<<<<<< HEAD
+<<<<<<< HEAD
   resources :scripts, only: [:index, :new, :create] do
     resources :scenes, shallow: true
   end
+=======
+  resources :scripts, only: [:index, :new, :create]
+  resources :scenes
+>>>>>>> scripts
 =======
 <<<<<<< HEAD
   resources :users, only: [:new, :create]
