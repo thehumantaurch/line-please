@@ -1,0 +1,10 @@
+<h1>Lines#index for now </h1>
+<% @lines.each do |line| %>
+  <% if line.character.name == "Ophelia" %>
+    <div class="ophelia"><%= line.id %>. <%= line.character.name %>: <%= line.words %></div><br>
+  <% elsif line.character.name == "Horatio" %>
+    <div class="horatio"><%= line.id %>. <%= line.character.name %>: <%= line.words %></div><br>
+  <% else line.character.name == "Hamlet" %>
+    <div class="hamlet"><%= line.id %>. <%= line.character.name %>: <%= line.words %></div><br>
+    <% end %>
+    <% end %>
