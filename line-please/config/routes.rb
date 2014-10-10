@@ -2,8 +2,13 @@ Rails.application.routes.draw do
   root 'sessions#new'
   resources :users, only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :scripts, only: [:index, :new, :create]
-  resources :scenes
+  resources :scripts, only: [:index, :new, :create] do
+    resources :scenes, only: [:index]
+    resources :characters, only: [:index]
+  end
+  resources :scene_characters, only: [:index] do
+      resources :lines
+    end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
