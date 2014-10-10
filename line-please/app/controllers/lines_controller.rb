@@ -1,6 +1,8 @@
 class LinesController < ApplicationController
 
   def index
+    @scene = Scene.third
+    @lines = @scene.lines
   end
 
   def show
