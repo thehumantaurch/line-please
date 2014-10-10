@@ -1,4 +1,5 @@
 class ScriptsController < ApplicationController
+<<<<<<< HEAD
 
   def index
     @scripts = Script.all
@@ -19,4 +20,6 @@ class ScriptsController < ApplicationController
     params.require(:script).permit(:title, :author)
   end
 
+=======
+>>>>>>> master
 end
