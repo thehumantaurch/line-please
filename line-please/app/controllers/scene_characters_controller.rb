@@ -1,2 +1,0 @@
-class SceneCharactersController < ApplicationController
-end

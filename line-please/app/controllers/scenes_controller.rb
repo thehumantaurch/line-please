@@ -8,13 +8,4 @@ class ScenesController < ApplicationController
     @scene = Scene.new
   end
 
-  def create
-  end
-
-  def update
-  end
-
-  def destroy
-  end
-
 end

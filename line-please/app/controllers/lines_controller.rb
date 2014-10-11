@@ -1,26 +1,32 @@
 class LinesController < ApplicationController
 
   def index
-    @scene = Scene.third
+    @scene = Scene.third #update with params
     @lines = @scene.lines
   end
 
-  def show
-  end
-
   def new
+    @line = Line.new
   end
 
   def create
+    @line = Line.create(line_params)
+    redirect_to scene_path(params[:scene_id])
   end
 
   def edit
+    load_line
   end
 
   def update
+    @line = Line.update(line_params)
+    redirect_to scene_path(params[:scene_id])
+
   end
 
   def destroy
+    load_line
+    @line.destroy
   end
 
   private
