@@ -30,9 +30,6 @@ gem 'rspec-rails'
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
-<<<<<<< HEAD
-=======
 gem 'rspec-rails'
 gem 'factory_girl_rails'
 gem 'faker'
@@ -41,7 +38,7 @@ gem 'database-cleaner'
 gem 'launchy'
 gem 'selenium-webdriver'
 gem 'pry'
->>>>>>> e34be8bcb4f04f4d91037045d2d44be8d536374e
+gem 'travis'
 # Use unicorn as the app server
 # gem 'unicorn'
 
