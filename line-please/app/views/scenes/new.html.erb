@@ -1,9 +1,0 @@
-<h1>Add a scene(Scenes#new)</h1>
-
-<%= form_for @scene, url: {action: "create"} do |f| %>
-  <%= f.label "Character:" %>
-  <%= f.text_field :name %><br>
-  <%= f.label "Line:" %>
-  <%= f.text_area :words %>
-  <%= f.submit "Create Scene" %>
-<% end %>

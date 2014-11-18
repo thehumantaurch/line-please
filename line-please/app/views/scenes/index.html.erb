@@ -1,6 +1,0 @@
-<h1>Scenes of Script (scenes#index)</h1>
-<ul><% @scenes.each do |sce| %>
-  <li><%= sce.characters.first.name %>: <%= sce.characters.first.lines.first.words %> ... </li>
-  <% end %></ul>
-
-<%= link_to "Add Scene", new_script_scene_path %>
