@@ -37,6 +37,7 @@ gem 'capybara'
 gem 'database_cleaner'
 gem 'launchy'
 gem 'selenium-webdriver'
+gem 'pg'
 
 # Use unicorn as the app server
 # gem 'unicorn'
