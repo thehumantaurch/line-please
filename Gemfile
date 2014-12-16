@@ -30,6 +30,13 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 gem 'docsplit'
+gem 'rspec-rails'
+gem 'factory_girl_rails'
+gem 'faker'
+gem 'capybara'
+gem 'database_cleaner'
+gem 'launchy'
+gem 'selenium-webdriver'
 
 # Use unicorn as the app server
 # gem 'unicorn'
