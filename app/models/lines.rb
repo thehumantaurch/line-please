@@ -1,4 +1,5 @@
 class Lines < ActiveRecord::Base
   belongs_to :character
-  belongs_to :script, through: :character
+  has_one :script, through: :character
+  validates :character_id, presence: true
 end
