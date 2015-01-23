@@ -1,13 +1,13 @@
 class SessionsController < ApplicationController
 
   def create
-    @user = User.find_by(username: sessions_params[:username])
+    @user = Users.find_by(username: sessions_params[:username])
     .try(:authenticate, sessions_params[:password])
 
     if @user
       session[:user_id] = @user.id
       session[:toggle] = true
-      redirect_to expenses_path
+      redirect_to users_path(@user)
     else
       flash[:login] = "Invalid Credentials"
       redirect_to root_path
