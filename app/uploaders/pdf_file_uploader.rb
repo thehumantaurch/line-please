@@ -26,6 +26,30 @@ class PdfFileUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   # process :scale => [200, 300]
+
+  process :convert_to_text
+
+  def convert_to_text
+    temp_dir = Rails.root.join('tmp', 'pdf-parser', 'text')
+    temp_path = temp_dir.join(filename)
+
+    FileUtils.mkdir_p(temp_dir)
+
+    PDF::Reader.open(current_path) do |pdf|
+      File.open(temp_path, 'w') do |f|
+        pdf.pages.each do |page|
+          f.puts page.text
+        end
+      end
+    end
+
+    File.unlink(current_path)
+    FileUtils.cp(temp_path, current_path)
+  end
+
+  def filename
+    super + '.txt' if original_filename.present?
+  end
   #
   # def scale(width, height)
   #   # do something
