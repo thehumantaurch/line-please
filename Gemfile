@@ -40,6 +40,7 @@ gem 'selenium-webdriver'
 gem 'pg'
 
 gem 'carrierwave'
+gem 'pdf-reader'
 
 # Use unicorn as the app server
 # gem 'unicorn'
