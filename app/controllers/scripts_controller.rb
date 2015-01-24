@@ -7,9 +7,11 @@ class ScriptsController < ApplicationController
   end
 
   def new
+    @script = Scripts.new
   end
 
   def create
+    @script = Scripts.new(script_params)
   end
 
   def edit
@@ -20,5 +22,10 @@ class ScriptsController < ApplicationController
 
   def delete
   end
+
+  private
+
+  def script_params
+    params.require(:script).permit(:title, :author, :pdf_file)
 
 end
