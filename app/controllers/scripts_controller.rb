@@ -1,18 +1,18 @@
 class ScriptsController < ApplicationController
 
   def index
-    @scripts = Scripts.all
+    @scripts = Script.all
   end
 
   def show
   end
 
   def new
-    @script = Scripts.new
+    @script = Script.new
   end
 
   def create
-    @script = Scripts.new(script_params)
+    @script = Script.new(script_params)
 
     if @script.save
       redirect_to scripts_path
