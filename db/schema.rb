@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150122174151) do
   create_table "scripts", force: true do |t|
     t.string   "title"
     t.string   "author"
+    t.string   "pdf_file"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
