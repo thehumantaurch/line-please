@@ -27,5 +27,6 @@ class ScriptsController < ApplicationController
 
   def script_params
     params.require(:script).permit(:title, :author, :pdf_file)
+  end
 
 end
