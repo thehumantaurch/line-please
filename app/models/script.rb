@@ -1,4 +1,4 @@
-class Scripts < ActiveRecord::Base
+class Script < ActiveRecord::Base
 
   mount_uploader :pdf_file, PdfFileUploader
 

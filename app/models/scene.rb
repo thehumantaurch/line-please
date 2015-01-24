@@ -1,5 +1,4 @@
-class Characters < ActiveRecord::Base
+class Scene < ActiveRecord::Base
   belongs_to :script
-  has_many :lines
   validates :script_id, presence: true
 end
