@@ -39,6 +39,8 @@ gem 'launchy'
 gem 'selenium-webdriver'
 gem 'pg'
 
+gem 'carrierwave'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
