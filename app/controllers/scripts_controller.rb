@@ -13,6 +13,7 @@ class ScriptsController < ApplicationController
 
   def create
     @script = Script.new(script_params)
+    @script.script_contents = set_text(@script.filepath.current_path)
 
     if @script.save
       redirect_to scripts_path
@@ -34,7 +35,17 @@ class ScriptsController < ApplicationController
   private
 
   def script_params
-    params.require(:script).permit(:title, :author, :pdf_file)
+    params.require(:script).permit(:title, :author, :filepath)
+  end
+
+  def set_text(path)
+    pages = []
+    PDF::Reader.open(path) do |reader|
+        reader.pages.each do |page|
+          pages << page.text
+        end
+      end
+    pages.join(" ")
   end
 
 end
