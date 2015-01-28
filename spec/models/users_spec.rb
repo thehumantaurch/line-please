@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Users, :type => :model do
+RSpec.describe User, :type => :model do
 
   it "is valid with a username, password, and email" do
     user = FactoryGirl.build(:user)
