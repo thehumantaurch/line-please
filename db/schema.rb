@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150122174151) do
 
   create_table "lines", force: true do |t|
     t.integer  "character_id"
-    t.string   "text"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
