@@ -1,4 +1,8 @@
-linePlease = angular.module('linePlease', [])
+linePlease = angular.module('linePlease', [
+  'templates',
+  'ngRoute',
+  'controllers'
+  ])
 
 app.config(['$routeProvider',
   ($routeProvider) ->
@@ -11,4 +15,8 @@ app.config(['$routeProvider',
       templateUrl: "<%= asset_path('new.html') %>"
       controller: 'NewScriptController'
       )
+  ])
+
+controllers = angular.module('controllers', [])
+controllers.controller('ScriptsController', ['$scope', ($scope) ->
   ])
