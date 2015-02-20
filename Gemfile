@@ -38,6 +38,7 @@ gem 'database_cleaner'
 gem 'launchy'
 gem 'selenium-webdriver'
 gem 'pg'
+gem 'bower-rails'
 
 gem 'carrierwave'
 gem 'pdf-reader'
