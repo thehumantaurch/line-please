@@ -4,16 +4,12 @@ linePlease = angular.module('linePlease', [
   'controllers'
   ])
 
-app.config(['$routeProvider',
+linePlease.config(['$routeProvider',
   ($routeProvider) ->
     $routeProvider
     .when('/',
-      templateUrl: "<%= asset_path('index.html') %>"
+      templateUrl: "index.html"
       controller: 'ScriptsController'
-      )
-    .when('/scripts/new',
-      templateUrl: "<%= asset_path('new.html') %>"
-      controller: 'NewScriptController'
       )
   ])
 
