@@ -39,6 +39,7 @@ gem 'launchy'
 gem 'selenium-webdriver'
 gem 'pg'
 gem 'bower-rails'
+gem 'angular-rails-templates'
 gem 'foreman'
 
 gem 'carrierwave'
