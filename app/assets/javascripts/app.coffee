@@ -1,0 +1,1 @@
+linePlease = angular.module('linePlease', [])
