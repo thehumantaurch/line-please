@@ -39,6 +39,7 @@ gem 'launchy'
 gem 'selenium-webdriver'
 gem 'pg'
 gem 'bower-rails'
+gem 'foreman'
 
 gem 'carrierwave'
 gem 'pdf-reader'
