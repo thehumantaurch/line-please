@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'scripts#index'
+  root 'users#index'
   resources :scripts
   resources :scenes
   resources :characters
