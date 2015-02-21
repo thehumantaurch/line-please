@@ -1,6 +1,7 @@
 linePlease = angular.module('linePlease',[
   'templates',
   'ngRoute',
+  'ngResource',
   'controllers',
 ])
 
@@ -14,8 +15,8 @@ linePlease.config([ '$routeProvider',
 ])
 
 controllers = angular.module('controllers',[])
-controllers.controller("ScriptsController", [ '$scope', '$routeParams', '$location',
-  ($scope,$routeParams,$location)->
+controllers.controller("ScriptsController", [ '$scope', '$routeParams', '$location', '$resource',
+  ($scope,$routeParams,$location,$resource)->
     $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
 
     if $routeParams.keywords
