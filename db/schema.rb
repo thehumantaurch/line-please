@@ -16,43 +16,43 @@ ActiveRecord::Schema.define(version: 20150122174151) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "characters", force: true do |t|
+  create_table "characters", force: :cascade do |t|
     t.integer  "script_id"
-    t.string   "name"
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "lines", force: true do |t|
+  create_table "lines", force: :cascade do |t|
     t.integer  "character_id"
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "scenes", force: true do |t|
+  create_table "scenes", force: :cascade do |t|
     t.integer  "script_id"
-    t.string   "header"
+    t.string   "header",     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "scripts", force: true do |t|
-    t.string   "title"
-    t.string   "author"
-    t.string   "filepath"
+  create_table "scripts", force: :cascade do |t|
+    t.string   "title",           limit: 255
+    t.string   "author",          limit: 255
+    t.string   "filepath",        limit: 255
     t.text     "script_contents"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "username",                    null: false
-    t.string   "password_digest",             null: false
-    t.string   "email",                       null: false
-    t.string   "first_name",                  null: false
-    t.string   "last_name",                   null: false
-    t.integer  "access_level",    default: 1
+  create_table "users", force: :cascade do |t|
+    t.string   "username",        limit: 255,             null: false
+    t.string   "password_digest", limit: 255,             null: false
+    t.string   "email",           limit: 255,             null: false
+    t.string   "first_name",      limit: 255,             null: false
+    t.string   "last_name",       limit: 255,             null: false
+    t.integer  "access_level",                default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
