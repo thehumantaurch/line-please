@@ -1,7 +1,12 @@
 class ScriptsController < ApplicationController
 
   def index
-    @scripts = Script.all
+    @scripts =
+    if params[:keywords]
+      Script.where('title ilike ?',"%#{params[:keywords]}%")
+    else
+      []
+    end
   end
 
   def show
