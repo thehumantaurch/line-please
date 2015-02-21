@@ -1,0 +1,1 @@
+json.(script, :id, :title, :author)
