@@ -13,24 +13,6 @@ linePlease.config([ '$routeProvider',
       )
 ])
 
-scripts = [
-  {
-    id: 1
-    name: 'Hamlet'
-  },
-  {
-    id: 2
-    name: 'Neverwhere',
-  },
-  {
-    id: 3
-    name: 'Very Still & Hard To See',
-  },
-  {
-    id: 4
-    name: 'As You Like It',
-  },
-]
 controllers = angular.module('controllers',[])
 controllers.controller("ScriptsController", [ '$scope', '$routeParams', '$location',
   ($scope,$routeParams,$location)->
@@ -38,7 +20,7 @@ controllers.controller("ScriptsController", [ '$scope', '$routeParams', '$locati
 
     if $routeParams.keywords
       keywords = $routeParams.keywords.toLowerCase()
-      $scope.scripts = scripts.filter (script)-> script.name.toLowerCase().indexOf(keywords) != -1
+      $scope.scripts = scripts.filter (script)-> script.title.toLowerCase().indexOf(keywords) != -1
     else
       $scope.scripts = []
 ])
