@@ -11,6 +11,9 @@ linePlease.config([ '$routeProvider',
       .when('/',
         templateUrl: "index.html"
         controller: 'ScriptsController'
+      ).when('/scripts/:scriptId',
+        templateUrl: "show.html"
+        controller: 'ScriptController'
       )
 ])
 
