@@ -10,7 +10,7 @@ describe "ScriptController", ->
     title: "My So Called Life Play"
     author: "Claire Danes"
 
-  setupController =(scriptExists=true)->
+  setupController =(scriptExists=true, scriptId=27)->
     inject(($location, $routeParams, $rootScope, $httpBackend, $controller)->
       scope       = $rootScope.$new()
       location    = $location
@@ -18,11 +18,13 @@ describe "ScriptController", ->
       routeParams = $routeParams
       routeParams.scriptId = scriptId
 
-      request = new RegExp("\/scripts/#{scriptId}")
-      results = if scriptExists
-        [200, fakeScript]
+
+      if scriptId
+        request = new RegExp("\/scripts/#{scriptId}")
+        results = if scriptExists
+          [200, fakeScript]
       else
-      [404]
+        [404]
 
       httpBackend.expectGET(request).respond(results[0], results[1])
 

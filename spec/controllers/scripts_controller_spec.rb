@@ -39,4 +39,29 @@ describe ScriptsController do
     end
 
   end
+
+  describe 'show' do
+    before do
+      xhr :get, :show, format: :json, id: script_id
+    end
+
+    subject(:results) { JSON.parse(response.body) }
+
+    context "when the script exists" do
+      let(:script) {
+        Script.create(title: "Hamlet", author: "William Shakespeare")
+      }
+      let(:script_id) { script.id }
+
+      it { expect(response.status).to eq(200) }
+      it { expect(results["id"]).to eq(script.id) }
+      it { expect(results["title"]).to eq(script.title) }
+      it { expect(results["author"]).to eq(script.author) }
+    end
+
+    context "when the script doesn't exist" do
+      let(:script_id) { -24601 }
+      it { expect(response.status).to eq(404) }
+    end
+  end
 end
