@@ -1,4 +1,5 @@
 controllers = angular.module('controllers',[])
+
 controllers.controller("ScriptsController", [ '$scope', '$routeParams', '$location', '$resource',
   ($scope,$routeParams,$location,$resource)->
     $scope.search = (keywords)->  $location.path("/").search('keywords',keywords)
