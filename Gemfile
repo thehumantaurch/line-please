@@ -33,7 +33,6 @@ gem 'sass'
 
 gem 'bower-rails'
 gem 'angular-rails-templates'
-gem 'angular-flash'
 
 gem "foreman"
 group :production, :staging do
