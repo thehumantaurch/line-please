@@ -34,7 +34,7 @@ describe "ScriptsController", ->
     describe 'when no keywords present', ->
       beforeEach(setupController())
 
-      it 'defaults to no recipes', ->
+      it 'defaults to no scripts', ->
         expect(scope.scripts).toEqualData([])
 
     describe 'with keywords', ->
