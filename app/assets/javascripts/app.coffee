@@ -13,8 +13,14 @@ linePlease.config([ '$routeProvider',
       .when('/',
         templateUrl: "index.html"
         controller: 'ScriptsController'
+      ).when('/scripts/new',
+        templateUrl: "form.html"
+        controller: 'ScriptController'
       ).when('/scripts/:scriptId',
         templateUrl: "show.html"
+        controller: 'ScriptController'
+      ).when('/scripts/:scriptId/edit',
+        templateUrl: "form.html"
         controller: 'ScriptController'
       )
 ])
