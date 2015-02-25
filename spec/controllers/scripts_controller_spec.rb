@@ -64,4 +64,39 @@ describe ScriptsController do
       it { expect(response.status).to eq(404) }
     end
   end
+
+  describe "create" do
+    before do
+      xhr :post, :create, format: :json, script: { title: "She Kills Monsters", author: "Qui Nguyen"}
+    end
+
+    it { expect(response.status).to eq(201) }
+    it { expect(Script.last.title).to eq("She Kills Monsters") }
+    it { expect(Script.last.author).to eq("Qui Nguyen") }
+  end
+
+  describe "update" do
+    let(:script) {
+      Script.create!(title: "Living Dead in Denmark", author: "Qui Nguyen")
+    }
+
+    before do
+      xhr :put, :update, format: :json, id: script.id, script: { title: "She Kills Monsters", author: "Qui Nguyen"}
+      script.reload
+    end
+    it { expect(response.status).to eq(204) }
+    it { expect(script.title).to eq("She Kills Monsters") }
+    it { expect(script.author).to eq("Qui Nguyen") }
+  end
+
+  describe "destroy" do
+    let(:script_id) {
+      Script.create!(title: "Living Dead in Denmark", author: "Qui Nguyuen").id
+    }
+    before do
+      xhr :delete, :destroy, format: :json, id: script_id
+    end
+    it { expect(response.status).to eq(204) }
+    it { expect(Script.find_by_id(script_id)).to be_nil }
+  end
 end
