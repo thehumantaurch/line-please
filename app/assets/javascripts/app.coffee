@@ -3,6 +3,8 @@ linePlease = angular.module('linePlease',[
   'ngRoute',
   'ngResource',
   'controllers',
+  'angular-flash.service',
+  'angular-flash.flash-alert-directive'
 ])
 
 linePlease.config([ '$routeProvider',
