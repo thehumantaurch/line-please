@@ -1,5 +1,7 @@
 class ScriptsController < ApplicationController
 
+  skip_before_filter :verify_authenticity_token
+
   def index
     @scripts =
     if params[:keywords]
@@ -13,37 +15,25 @@ class ScriptsController < ApplicationController
     @script = Script.find(params[:id])
   end
 
-  def new
-    @script = Script.new
-  end
-
   def create
-    @script = Script.new(script_params)
-    @script.script_contents = set_text(@script.filepath.current_path)
-    set_lines(@script.script_contents)
-
-    if @script.save
-      redirect_to scripts_path
-    else
-      redirect_to new_script_path
-    end
-
+    @script = Script.new(params.require(:script).permit(:title, :author))
+    @script.save
+    render 'show', status: 201
   end
 
-  def edit
+  def update
+    script = Script.find(params[:id])
+    script.update_attributes(params.require(:script).permit(:title, :author))
+    head :no_content
   end
 
-  def post
-  end
-
-  def delete
+  def destroy
+    script = Script.find(params[:id])
+    script.destroy
+    head :no_content
   end
 
   private
-
-  def script_params
-    params.require(:script).permit(:title, :author, :filepath)
-  end
 
   def set_text(path)
     pages = []
