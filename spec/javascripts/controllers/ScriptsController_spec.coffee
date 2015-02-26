@@ -41,14 +41,12 @@ describe "ScriptsController", ->
       keywords = 'foo'
       scripts = [
         {
-          id: 1
-          title: 'Hamlet'
-          author: "William Shakespeare"
+          id: 2
+          title: 'Baked Potatoes'
         },
         {
-          id: 3
-          name: 'Very Still & Hard To See'
-          author: "Steve Yockey"
+          id: 4
+          title: 'Potatoes Au Gratin'
         }
       ]
       beforeEach ->

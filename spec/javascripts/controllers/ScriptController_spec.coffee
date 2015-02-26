@@ -5,14 +5,14 @@ describe "ScriptController", ->
   httpBackend  = null
   flash        = null
   location     = null
-  scriptId     = 27
+  scriptId     = 42
 
   fakeScript   =
     id: scriptId
-    title: "My So Called Life Play"
-    author: "Claire Danes"
+    title: "Baked Potatoes"
+    author: "Pierce potato with fork, nuke for 20 minutes"
 
-  setupController =(scriptExists=true,scriptId=27)->
+  setupController =(scriptExists=true,scriptId=42)->
     inject(($location, $routeParams, $rootScope, $httpBackend, $controller, _flash_)->
       scope       = $rootScope.$new()
       location    = $location
@@ -55,17 +55,17 @@ describe "ScriptController", ->
 
   describe 'create', ->
     newScript =
-      id: 27
-      title: 'Living Dead in Denmark'
-      author: "Qui Nguyen"
+      id: 24601
+      title: 'Toast'
+      author: 'put in toaster, push lever, add butter'
 
     beforeEach ->
       setupController(false,false)
-      request = new RegExp("\/scripts")
+      request = new RegExp("\/script")
       httpBackend.expectPOST(request).respond(201,newScript)
 
     it 'posts to the backend', ->
-      scope.script.title  = newScript.title
+      scope.script.title         = newScript.title
       scope.script.author = newScript.author
       scope.save()
       httpBackend.flush()
@@ -73,8 +73,8 @@ describe "ScriptController", ->
 
   describe 'update', ->
     updatedScript =
-      title: 'She Loves Monsters'
-      author: 'Sarah Taurchini'
+      title: 'Toast'
+      author: 'put in toaster, push lever, add butter'
 
     beforeEach ->
       setupController()
@@ -83,7 +83,7 @@ describe "ScriptController", ->
       httpBackend.expectPUT(request).respond(204)
 
     it 'posts to the backend', ->
-      scope.script.title  = updatedScript.title
+      scope.script.title         = updatedScript.title
       scope.script.author = updatedScript.author
       scope.save()
       httpBackend.flush()

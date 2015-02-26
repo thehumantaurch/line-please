@@ -1,14 +1,12 @@
 class ScriptsController < ApplicationController
-
   skip_before_filter :verify_authenticity_token
 
   def index
-    @scripts =
-    if params[:keywords]
-      Script.where('title ilike ?',"%#{params[:keywords]}%")
-    else
-      []
-    end
+    @scripts = if params[:keywords]
+                 Script.where('title ilike ?',"%#{params[:keywords]}%")
+               else
+                 []
+               end
   end
 
   def show
@@ -16,14 +14,14 @@ class ScriptsController < ApplicationController
   end
 
   def create
-    @script = Script.new(params.require(:script).permit(:title, :author))
+    @script = Script.new(params.require(:script).permit(:title,:author))
     @script.save
     render 'show', status: 201
   end
 
   def update
     script = Script.find(params[:id])
-    script.update_attributes(params.require(:script).permit(:title, :author))
+    script.update_attributes(params.require(:script).permit(:title,:author))
     head :no_content
   end
 
@@ -32,6 +30,7 @@ class ScriptsController < ApplicationController
     script.destroy
     head :no_content
   end
+
 
   private
 

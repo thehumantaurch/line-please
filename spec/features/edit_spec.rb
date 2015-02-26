@@ -1,38 +1,41 @@
 require 'spec_helper.rb'
 
 feature "Creating, editing, and deleting a script", js: true do
+  before :each do
+    Script.destroy_all
+  end
   scenario "CRUD a script" do
     visit '/'
     click_on "New Script"
 
-    fill_in "title", with: "She Kills Monsters"
-    fill_in "author", with: "Qui Nguyen"
+    fill_in "title", with: "As You Like It"
+    fill_in "author", with: "William Shakespeare"
 
     click_on "Save"
 
-    expect(page).to have_content("Monsters")
-    expect(page).to have_content("Qui")
+    expect(page).to have_content("As You")
+    expect(page).to have_content("William")
 
     click_on "Edit"
 
-    fill_in "title", with: "She Eats Monsters"
-    fill_in "author", with: "Sarah Taurchini"
+    fill_in "title", with: "Hamlet"
+    fill_in "author", with: "William Shakespeare"
 
     click_on "Save"
 
-    expect(page).to have_content("Eats Monsters")
-    expect(page).to have_content("Sarah")
+    expect(page).to have_content("Hamlet")
+    expect(page).to have_content("Shakespeare")
 
     visit "/"
-
-    fill_in "keywords", with: "She"
+    fill_in "keywords", with: "Ham"
     click_on "Search"
 
-    click_on "She Eats Monsters"
+    click_on "Hamlet"
 
     click_on "Delete"
+    sleep 1
 
-    expect(Script.find_by_name("She Kills Monsters")).to be_nil
+    expect(Script.find_by(title: "Hamlet")).to be_nil
 
   end
 end

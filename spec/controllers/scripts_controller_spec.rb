@@ -4,10 +4,10 @@ describe ScriptsController do
   render_views
   describe "index" do
     before do
-      Script.create!(title: 'Hamlet', author: "William Shakespeare")
-      Script.create!(title: 'Neverwhere', author: "Neil Gaiman")
-      Script.create!(title: 'Very Still & Hard To See', author: "Steve Yockey")
-      Script.create!(title: 'As You Like It', author: "William Shakespeare")
+      Script.create(title: 'Hamlet', author: "William Shakespeare")
+      Script.create(title: 'Hamlet 2', author: "William Shakespeare")
+      Script.create(title: 'Neverwhere', author: "Neil Gaiman")
+      Script.create(title: 'Very Still & Hard To See', author: 'Steve Yockey')
 
       xhr :get, :index, format: :json, keywords: keywords
     end
@@ -19,15 +19,18 @@ describe ScriptsController do
     end
 
     context "when the search finds results" do
-      let(:keywords) { 'hamlet' }
+      let(:keywords) { 'Ham' }
       it 'should 200' do
         expect(response.status).to eq(200)
       end
-      it 'should return one result' do
-        expect(results.size).to eq(1)
+      it 'should return two results' do
+        expect(results.size).to eq(2)
       end
       it "should include 'Hamlet'" do
         expect(results.map(&extract_title)).to include('Hamlet')
+      end
+      it "should include 'Hamlet 2'" do
+        expect(results.map(&extract_title)).to include('Hamlet 2')
       end
     end
 
@@ -40,7 +43,7 @@ describe ScriptsController do
 
   end
 
-  describe 'show' do
+  describe "show" do
     before do
       xhr :get, :show, format: :json, id: script_id
     end
@@ -49,7 +52,8 @@ describe ScriptsController do
 
     context "when the script exists" do
       let(:script) {
-        Script.create(title: "Hamlet", author: "William Shakespeare")
+        Script.create!(title: 'Living Dead In Denmark',
+               author: "Qui Nguyen")
       }
       let(:script_id) { script.id }
 
@@ -59,7 +63,7 @@ describe ScriptsController do
       it { expect(results["author"]).to eq(script.author) }
     end
 
-    context "when the script doesn't exist" do
+    context "when the script doesn't exit" do
       let(:script_id) { -24601 }
       it { expect(response.status).to eq(404) }
     end
@@ -67,9 +71,9 @@ describe ScriptsController do
 
   describe "create" do
     before do
-      xhr :post, :create, format: :json, script: { title: "She Kills Monsters", author: "Qui Nguyen"}
+      xhr :post, :create, format: :json, script: { title: "She Kills Monsters",
+                                           author: "Qui Nguyen" }
     end
-
     it { expect(response.status).to eq(201) }
     it { expect(Script.last.title).to eq("She Kills Monsters") }
     it { expect(Script.last.author).to eq("Qui Nguyen") }
@@ -77,21 +81,23 @@ describe ScriptsController do
 
   describe "update" do
     let(:script) {
-      Script.create!(title: "Living Dead in Denmark", author: "Qui Nguyen")
+      Script.create(title: 'She Kills Monsters',
+                     author: "Qui Nguyen")
     }
-
     before do
-      xhr :put, :update, format: :json, id: script.id, script: { title: "She Kills Monsters", author: "Qui Nguyen"}
+      xhr :put, :update, format: :json, id: script.id, script: { title: "Living Dead In Denmark",
+                                                 author: "Qui Nguyen" }
       script.reload
     end
     it { expect(response.status).to eq(204) }
-    it { expect(script.title).to eq("She Kills Monsters") }
+    it { expect(script.title).to eq("Living Dead In Denmark") }
     it { expect(script.author).to eq("Qui Nguyen") }
   end
 
   describe "destroy" do
     let(:script_id) {
-      Script.create!(title: "Living Dead in Denmark", author: "Qui Nguyuen").id
+      Script.create(title: 'One Flea Spare',
+                     author: "Naomi Wallace").id
     }
     before do
       xhr :delete, :destroy, format: :json, id: script_id
