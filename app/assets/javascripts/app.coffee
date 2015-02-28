@@ -31,4 +31,10 @@ linePlease.config([ '$routeProvider', 'flashProvider',
       )
 ])
 
+angular
+    .module('linePlease', ['angularFileUpload'])
+    .controller('ScriptController', function($scope, FileUploader) {
+        $scope.uploader = new FileUploader({url: '/scripts/new'});
+    });
+
 controllers = angular.module('controllers',[])
