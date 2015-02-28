@@ -33,6 +33,7 @@ gem 'sass'
 
 gem 'bower-rails'
 gem 'angular-rails-templates'
+gem 'angularjs-file-upload-rails'
 
 gem "foreman"
 group :production, :staging do
