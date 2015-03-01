@@ -3,8 +3,7 @@ class CreateScripts < ActiveRecord::Migration
     create_table :scripts do |t|
       t.string :title
       t.string :author
-      t.string :filepath
-      t.text :script_contents
+      t.string :file
 
       t.timestamps
     end

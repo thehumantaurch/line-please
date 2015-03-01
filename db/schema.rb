@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20150122174151) do
 
   create_table "characters", force: :cascade do |t|
     t.integer  "script_id"
-    t.string   "name",       limit: 255
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,27 +32,26 @@ ActiveRecord::Schema.define(version: 20150122174151) do
 
   create_table "scenes", force: :cascade do |t|
     t.integer  "script_id"
-    t.string   "header",     limit: 255
+    t.string   "header"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "scripts", force: :cascade do |t|
-    t.string   "title",           limit: 255
-    t.string   "author",          limit: 255
-    t.string   "filepath",        limit: 255
-    t.text     "script_contents"
+    t.string   "title"
+    t.string   "author"
+    t.string   "file"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",        limit: 255,             null: false
-    t.string   "password_digest", limit: 255,             null: false
-    t.string   "email",           limit: 255,             null: false
-    t.string   "first_name",      limit: 255,             null: false
-    t.string   "last_name",       limit: 255,             null: false
-    t.integer  "access_level",                default: 1
+    t.string   "username",                    null: false
+    t.string   "password_digest",             null: false
+    t.string   "email",                       null: false
+    t.string   "first_name",                  null: false
+    t.string   "last_name",                   null: false
+    t.integer  "access_level",    default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
