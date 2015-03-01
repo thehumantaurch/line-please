@@ -1,12 +1,14 @@
 controllers = angular.module('controllers')
-controllers.controller("ScriptController", [ '$scope', '$routeParams', '$resource', '$location', 'flash',
-  ($scope,$routeParams,$resource,$location, flash)->
+controllers.controller("ScriptController", [ '$scope', '$routeParams', '$resource', '$location', 'flash', 'FileUploader'
+  ($scope,$routeParams,$resource,$location, flash, FileUploader)->
     Script = $resource('/scripts/:scriptId', { scriptId: "@id", format: 'json' },
       {
         'save':   {method:'PUT'},
         'create': {method:'POST'}
       }
     )
+    uploader = $scope.uploader = new FileUploader({url: '/scripts/new'})
+    console.info('uploader', uploader)
 
     if $routeParams.scriptId
       Script.get({scriptId: $routeParams.scriptId},
