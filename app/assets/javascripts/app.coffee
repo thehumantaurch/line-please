@@ -4,7 +4,8 @@ linePlease = angular.module('linePlease',[
   'ngResource',
   'controllers',
   'angular-flash.service',
-  'angular-flash.flash-alert-directive'
+  'angular-flash.flash-alert-directive',
+  'angularFileUpload'
 ])
 
 linePlease.config([ '$routeProvider', 'flashProvider',
@@ -31,10 +32,5 @@ linePlease.config([ '$routeProvider', 'flashProvider',
       )
 ])
 
-angular
-    .module('linePlease', ['angularFileUpload'])
-    .controller('ScriptController', function($scope, FileUploader) {
-        $scope.uploader = new FileUploader({url: '/scripts/new'});
-    });
 
 controllers = angular.module('controllers',[])
