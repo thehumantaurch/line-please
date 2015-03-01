@@ -1,1 +1,1 @@
-json.(script, :id, :title, :author)
+json.(script, :id, :title, :author, :file)
