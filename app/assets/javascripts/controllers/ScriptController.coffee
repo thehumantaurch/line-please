@@ -8,7 +8,7 @@ controllers.controller("ScriptController", [ '$scope', '$routeParams', '$resourc
       }
     )
     uploader = $scope.uploader = new FileUploader({url: '/scripts/new'})
-    console.info('uploader', uploader)
+    console.info('uploader',uploader)
 
     if $routeParams.scriptId
       Script.get({scriptId: $routeParams.scriptId},

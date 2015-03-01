@@ -1,3 +1,4 @@
+require 'pry'
 class ScriptsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
@@ -14,15 +15,15 @@ class ScriptsController < ApplicationController
   end
 
   def create
-    script = Script.new()
-    script.file = params[:file]
+    @script = Script.new()
+    binding.pry
     @script.save
     render 'show', status: 201
   end
 
   def update
     script = Script.find(params[:id])
-    script.update_attributes(params.require(:script).permit(:title,:author))
+    script.update_attributes(params.require(:script).permit(:title,:author,:file))
     head :no_content
   end
 

@@ -5,6 +5,6 @@ class Script < ActiveRecord::Base
   has_many :scenes
   has_many :characters
   has_many :lines
-  validates :author, :title, :file, presence: true
+  # validates :author, :title, presence: true
 
 end
