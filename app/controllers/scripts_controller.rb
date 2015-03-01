@@ -14,7 +14,8 @@ class ScriptsController < ApplicationController
   end
 
   def create
-    @script = Script.new(params.require(:script).permit(:title,:author))
+    script = Script.new()
+    script.file = params[:file]
     @script.save
     render 'show', status: 201
   end
@@ -33,6 +34,10 @@ class ScriptsController < ApplicationController
 
 
   private
+
+  def script_params
+    params.require(:script).permit(:title, :author, :file)
+  end
 
   def set_text(path)
     pages = []
