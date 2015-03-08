@@ -7,7 +7,7 @@ controllers.controller("ScriptController", [ '$scope', '$routeParams', '$resourc
         'create': {method:'POST'}
       }
     )
-    uploader = $scope.uploader = (files) -> new FileUploader({
+    uploader = $scope.uploader = new FileUploader({
       url: '/scripts/new'
       method: 'POST'
       fields: {'title', 'author'}
